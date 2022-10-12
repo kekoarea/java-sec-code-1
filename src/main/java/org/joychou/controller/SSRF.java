@@ -58,9 +58,9 @@ public class SSRF {
         }
 
     }
-    
-
-    /**
+ 
+  
+  /**
      * The default setting of followRedirects is true.
      * UserAgent is Java/1.8.0_102.
      */
