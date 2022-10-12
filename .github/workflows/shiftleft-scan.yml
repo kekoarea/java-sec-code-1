@@ -36,13 +36,13 @@ jobs:
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
     - name: NextGen Static Analysis
-      run: ${GITHUB_WORKSPACE}/sl analyze --wait --app SSRF-Java-Demo --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --remediation-config remediation.yaml --vcs-prefix-correction "*=/src/main/java" --java ./target/java-sec-code-1.0.0.jar
+      run: ${GITHUB_WORKSPACE}/sl analyze --wait --app java-ssrf-demo --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --remediation-config remediation.yaml --vcs-prefix-correction "*=/src/main/java" --java ./target/java-sec-code-1.0.0.jar
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
         
     - name: Validate Build Rules
       run: |
-        ${GITHUB_WORKSPACE}/sl check-analysis --v2 --app SSRF-Java-Demo \
+        ${GITHUB_WORKSPACE}/sl check-analysis --v2 --app java-ssrf-demo \
             --report \
             --github-pr-number=${{github.event.number}} \
             --github-pr-user=${{ github.repository_owner }} \
