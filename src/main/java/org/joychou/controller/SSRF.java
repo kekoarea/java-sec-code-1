@@ -33,7 +33,7 @@ public class SSRF {
      * Protocol: file ftp mailto http https jar netdoc
      * UserAgent is Java/1.8.0_102.
      */
-    /*
+    
     @RequestMapping(value = "/urlConnection/vuln", method = {RequestMethod.POST, RequestMethod.GET})
     public String URLConnectionVuln(String url) {
         return HttpUtils.URLConnection(url);
@@ -58,7 +58,7 @@ public class SSRF {
         }
 
     }
-    */
+    
 
     /**
      * The default setting of followRedirects is true.
